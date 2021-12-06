@@ -1,0 +1,758 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --mermaid-theme: default; --mermaid-sequence-numbers: off; --mermaid-flowchart-curve: linear; --mermaid--gantt-left-padding: 75; --sequence-theme: simple; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print { 
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) { 
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) { 
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print { 
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>620-Draft</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><p>&nbsp;</p><p>&nbsp;</p><h1 id='work-place-futures-geographies-of-remote-work'><span>Work-place futures: geographies of remote work</span></h1><h2 id='introduction'><span>Introduction</span></h2><p><span>For many decades, geographers have focused their research on the themes of labour, its economic spatiality, and people&#39;s working lives. Today, this interest continues to be shared across different empirical contexts, varied methodological techniques, and wide-ranging theoretical approaches. This research is often seen as the horizon of economic geography, especially within the increasingly capacious sub-discipline of labour geography. The history of labour geography is linked to different periods of complex and vast changes in the economics of capitalism and its consequences on everyday life. Today labour geography is as diverse as the types of work occurring globally and the ongoing restructuring of economic activity across different spaces.</span></p><p><span>At present, COVID-19 continues to have dramatic impacts on economic activity, production, supply chains, and the daily working experience of people the world over. Regardless of industry or sector, COVID-19 has engendered significant changes to the spatial organization of workplaces, labour processes, labour markets, and the expansion of workplace health and safety measures designed to slow the spread of disease. For some working people, this pandemic may have led to temporary unemployment due to lockdowns. Worse yet, millions of people have died from COVID-19, and an untold number of people are experiencing &#39;long COVID&#39; or exacerbated long-term illness (Sudre et al., 2021). For many people, working life has carried on during this precarious situation but with new elements such as wearing masks, physical or social distancing, shifts to remote work arrangements, and distributing vaccines and their workplace requirements. COVID-19 has created significant material changes to the physical spaces of work alongside changing social and cultural experiences of working during the pandemic. It is not hyperbolic to say that work may never be the same after the COVID-19 pandemic.</span></p><p><span>This article focuses on remote work specifically and how the sub-field of labour geography is instructive to understanding the continued effects of remote work. Home-based work mediated by digital technology existed before the COVID-19 pandemic (see Bailey and Kurland, 2002; Huws, 1991; Johnson et al., 2007). The International Labour Organization (ILO) estimated that before the COVID-19 pandemic, around 260 million people worked from home permanently (ILO, 2020). However, the COVID-19 pandemic has shifted remote work uptake drastically, and increased levels of remote work are likely to be a lasting feature of the COVID-19 pandemic (OCED, 2021). In this article, I am interested in the specific circumstances of workers whose employment shifted to a remote work model in response to the COVID-19 pandemic. The primary concern is how the COVID-19 pandemic continues to modify the livelihoods of households, transforms the relationship between home and work, and what sort of geographical approaches might be relevant to the current context of remote work.</span></p><p><span>To achieve this goal, I begin this article with a brief overview of labour geography and its contemporary relevance to changing spatial relationships of labour. Labour geography is defined by its plurality of approaches in understanding increasingly less stable and novel forms of employment. In particular, labour geography tends to focus on theorizing and studying workers&#39; agency in the struggle for achieving a livable life. After surveying labour geography, I will review the literature on remote work to first define what remote work is and demonstrate a few existing studies that assist in making sense of the present context. I will then build a discussion from these two reviews to suggest how labour geographers can approach remote work in future research.  </span></p><h2 id='work-and-labour-geographies'><span>Work and Labour Geographies</span></h2><p><span>Numerous accounts of labour geography summarize what the field represents and what its research agenda has been in the past, as well as where it should go (see Bergene et al., 2010; Brogen &amp; Tufts, 2017; Castree, 2007; Coe, 2013; Coe &amp; Jordhus-Lier, 2011; Hastings, 2016; Lier, 2007; McDowell, 2015; Peck, 2018, Rutherford, 2010). Most recently, </span><em><span>Progress in Human Geography</span></em><span> commissioned a set of labour geography reports to review the status of the sub-field (Strauss, 2018, 2020ab). Peck (2018) also recently summarized labour geography as a deeply pluralistic field but one needing more ‘reflexive and recombinant’ thinking to harness past approaches in addressing the “challenges of the restructuring present” (17). Both Strauss (2018, 2020ab) and Peck (2018) emphasize how labour geography must examine how deepening inequality, greater insecurity, and expanding informal employment are the primary features of the present. It would be fruitless to try to adequately summarize all the different work that has been represented as labour geography. As indicated above, plenty of other resources explain the genealogy of labour geography as a sub-field in granular detail. Instead, my goal here is to overview some of the most formative priorities of labour geography, which will lend themselves to a discussion of remote work as a particular geography of work.</span></p><h3 id='defining-worklabour'><span>Defining Work/Labour</span></h3><p><span>Before proceeding, I want to clarify what </span><em><span>labour</span></em><span> or </span><em><span>work</span></em><span> is. In specific economic analyses, labour or work is seen as an input or variable in the production process of goods and services. Because of this, labour is also viewed as a commodity in the sense that labour-power can be purchased through labour markets.  Figure 1 roughly outlines the capitalist mode of production and where labour-power as a commodity is put towards production. </span></p><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart34" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="378.890625" style="max-width: 1249.71875px;" viewBox="-8 -8 1249.71875 378.890625"><style>#mermaidChart34{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart34 .error-icon{fill:#552222;}#mermaidChart34 .error-text{fill:#552222;stroke:#552222;}#mermaidChart34 .edge-thickness-normal{stroke-width:2px;}#mermaidChart34 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart34 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart34 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart34 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart34 .marker{fill:#333333;}#mermaidChart34 .marker.cross{stroke:#333333;}#mermaidChart34 svg{font-family:sans-serif;font-size:16px;}#mermaidChart34 .label{font-family:sans-serif;color:#333;}#mermaidChart34 .label text{fill:#333;}#mermaidChart34 .node rect,#mermaidChart34 .node circle,#mermaidChart34 .node ellipse,#mermaidChart34 .node polygon,#mermaidChart34 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart34 .node .label{text-align:center;}#mermaidChart34 .node.clickable{cursor:pointer;}#mermaidChart34 .arrowheadPath{fill:#333333;}#mermaidChart34 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaidChart34 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart34 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaidChart34 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaidChart34 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart34 .cluster text{fill:#333;}#mermaidChart34 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart34:root{--mermaid-font-family:sans-serif;}#mermaidChart34:root{--mermaid-alt-font-family:sans-serif;}#mermaidChart34 flowchart{fill:apa;}</style><g><g class="output"><g class="clusters"><g class="cluster" id="flowchart-subGraph0-1374" transform="translate(620.859375,185.4453125)" style="opacity: 1;"><rect width="1225.71875" height="354.890625" x="-612.859375" y="-177.4453125"></rect><g class="label" transform="translate(0, -163.4453125)" id="mermaidChart34Text"><g transform="translate(-165.78125,-10.5)"><foreignObject width="331.5625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><b>Figure 1: The Capitalist Mode of Production</b></div></foreignObject></g></g></g></g><g class="edgePaths"><g class="edgePath LS-A LE-B" id="L-A-B" style="opacity: 1;"><path class="path" d="M397.5,86.21204764013666L422.5,84.1875L447.5,84.1875" marker-end="url(#arrowhead2337)" style="fill:none"></path><defs><marker id="arrowhead2337" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-A LE-C" id="L-A-C" style="opacity: 1;"><path class="path" d="M337.3411321263824,114.6875L422.5,160.23828125L501.66178925471263,215.7890625" marker-end="url(#arrowhead2338)" style="fill:none"></path><defs><marker id="arrowhead2338" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-B LE-D" id="L-B-D" style="opacity: 1;"><path class="path" d="M614.25,84.1875L639.25,84.1875L695.5400421288034,139.94823912119654" marker-end="url(#arrowhead2339)" style="fill:none"></path><defs><marker id="arrowhead2339" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-C LE-D" id="L-C-D" style="opacity: 1;"><path class="path" d="M590.6875,236.2890625L639.25,236.2890625L691.4746768755268,197.46295812552682" marker-end="url(#arrowhead2340)" style="fill:none"></path><defs><marker id="arrowhead2340" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-D LE-E" id="L-D-E" style="opacity: 1;"><path class="path" d="M788.5,170.73828125L813,170.23828125L838,170.23828125" marker-end="url(#arrowhead2341)" style="fill:none"></path><defs><marker id="arrowhead2341" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-E LE-F" id="L-E-F" style="opacity: 1;"><path class="path" d="M936.7070580257841,149.73828125L1012.8125,84.1875L1046.2578125,84.1875" marker-end="url(#arrowhead2342)" style="fill:none"></path><defs><marker id="arrowhead2342" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-E LE-G" id="L-E-G" style="opacity: 1;"><path class="path" d="M932.1187087761085,190.73828125L1012.8125,276.83984375L1037.8125,276.83984375" marker-end="url(#arrowhead2343)" style="fill:none"></path><defs><marker id="arrowhead2343" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-H LE-C" id="L-H-C" style="opacity: 1;"><path class="path" d="M380.6171875,246.2890625L422.5,246.2890625L471.0625,241.8080936418685" marker-end="url(#arrowhead2344)" style="fill:none"></path><defs><marker id="arrowhead2344" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-I LE-H" id="L-I-H" style="opacity: 1;"><path class="path" d="M150.53125,246.2890625L175.53125,246.2890625L217.4140625,246.2890625" marker-end="url(#arrowhead2345)" style="fill:none"></path><defs><marker id="arrowhead2345" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-F-1359" transform="translate(1123.265625,84.1875)" style="opacity: 1;"><rect rx="0" ry="0" x="-77.0078125" y="-20.5" width="154.015625" height="41" class="label-container" style="fill: #F0EFEB; stroke: #333; stroke-width:2px;"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-67.0078125,-10.5)"><foreignObject width="134.015625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Initial Money Value</div></foreignObject></g></g></g><g class="node default" id="flowchart-G-1360" transform="translate(1123.265625,276.83984375)" style="opacity: 1;"><rect rx="0" ry="0" x="-85.453125" y="-20.5" width="170.90625" height="41" class="label-container" style="fill: #F0EFEB; stroke: #333; stroke-width:2px;"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.453125,-10.5)"><foreignObject width="150.90625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Surplus Money Value</div></foreignObject></g></g></g><g class="node default" id="flowchart-E-1358" transform="translate(912.90625,170.23828125)" style="opacity: 1;"><rect rx="0" ry="0" x="-74.90625" y="-20.5" width="149.8125" height="41" class="label-container" style="fill: #F0EFEB; stroke: #333; stroke-width:2px;"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-64.90625,-10.5)"><foreignObject width="129.8125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">New Commodities</div></foreignObject></g></g></g><g class="node default" id="flowchart-D-1357" transform="translate(726.125,170.23828125)" style="opacity: 1;"><polygon points="61.875,0 123.75,-61.875 61.875,-123.75 0,-61.875" transform="translate(-61.875,61.875)" class="label-container" style="fill: #90BE6D; stroke: #333; stroke-width:2px;"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-38.25,-10.5)"><foreignObject width="76.5" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Production</div></foreignObject></g></g></g><g class="node default" id="flowchart-B-1355" transform="translate(530.875,84.1875)" style="opacity: 1;"><rect rx="0" ry="0" x="-83.375" y="-20.5" width="166.75" height="41" class="label-container" style="fill: #F0EFEB; stroke: #333; stroke-width:2px;"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-73.375,-10.5)"><foreignObject width="146.75" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Means of Production</div></foreignObject></g></g></g><g class="node default" id="flowchart-C-1356" transform="translate(530.875,236.2890625)" style="opacity: 1;"><rect rx="0" ry="0" x="-59.8125" y="-20.5" width="119.625" height="41" class="label-container" style="fill: #FFBA08;stroke:#000000;stroke-width:2px;stroke-dasharray: 10 10;"></rect><g class="label" transform="translate(0,0)"><g style="color:#00000;" transform="translate(-49.8125,-10.5)"><foreignObject width="99.625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Labour Power</div></foreignObject></g></g></g><g class="node default" id="flowchart-A-1354" transform="translate(299.015625,94.1875)" style="opacity: 1;"><rect rx="0" ry="0" x="-98.484375" y="-20.5" width="196.96875" height="41" class="label-container" style="fill: #F0EFEB; stroke: #333; stroke-width:2px;"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-88.484375,-10.5)"><foreignObject width="176.96875" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Money and Commodities</div></foreignObject></g></g></g><g class="node default" id="flowchart-H-1361" transform="translate(299.015625,246.2890625)" style="opacity: 1;"><circle x="-81.6015625" y="-20.5" r="81.6015625" class="label-container" style="fill: #ee6c4d; stroke:#333;stroke-width:2px;"></circle><g class="label" transform="translate(0,0)"><g transform="translate(-71.6015625,-10.5)"><foreignObject width="143.203125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Social Reproduction</div></foreignObject></g></g></g><g class="node default" id="flowchart-I-1363" transform="translate(91.765625,246.2890625)" style="opacity: 1;"><circle x="-58.765625" y="-20.5" r="58.765625" class="label-container" style="fill: #ee6c4d; stroke:#333;stroke-width:2px;"></circle><g class="label" transform="translate(0,0)"><g transform="translate(-48.765625,-10.5)"><foreignObject width="97.53125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Webs of Care</div></foreignObject></g></g></g></g></g></g></svg></div><p><span>However, famous political economists like Marx and Polyani argued that labour was unlike any other commodities in capitalism for its uniqueness in generating value and being embodied by us as conscious living beings (Peck, 1996).  Storper &amp; Walker (1983) summarized this critical position of understanding labour as more than a simple commodity:</span></p><blockquote><p><span>Human activity (work) is the irreducible essence of social production and social life. Labour is fundamentally different from every other production input because people are conscious subjects of production (Marx, edn 1967). To confuse labour with true commodities means adopting the following incorrect assumptions: the worker is the same as the objects of work; production is a purely technical exercise, a system of machinery that workers do not in any sense direct or contribute to. (4).</span></p></blockquote><p><span>How labour is represented remains an issue today. Although indeed not the </span><em><span>only</span></em><span> institutional authority on the subject, the ILO defines work/labour as “human activities, paid or unpaid, that produce the goods or services in an economy, or supply the needs of a community, or provide a person’s accustomed means of livelihood” (2021, n.p.). Such an expansive definition is crucial because it includes activities that historically have not been counted as work, such as unpaid domestic work or care activities. Lawson &amp; England (2005) note how competing concepts of &quot;work&quot; are gendered:</span></p><blockquote><p><span>Feminist scholars argue that historically the social and spatial separation of waged work from sites of reproduction (like communities and homes) … “work” became socially constructed as waged activity in the “public” sphere of capitalist production and “non-work” as the activities in the feminized “private” household sphere (like providing a comforting refuge for waged workers). Basically, the concepts of “work” are shaped by the gendered sites where it is performed. (78)</span></p></blockquote><p><span>Examining the concept of work historically, Komlosy (2018) explains how what is or is not counted as work is historically contingent and subject to change. Komlosy examines six historical epochs (1250, 1500, 1700, 1800, 1900 and &#39;the present&#39;) to demonstrate how work has been conceptualized differently across time and space. Each epoch is defined by different local labour conditions, inter-regional connections, and large-scale connections that shaped where labour took place and what was characterized as ‘work’. Within Komlosy’s analysis emphasizes how different jobs, employment, occupations, tasks, and who performs such tasks become recognized or evaluated in socially and culturally specific ways. As such, Komlosy argues that work is not just the jobs we find in market-based economies today but all activities we all pursue for ‘naked survival.’ In short, I adopt a more comprehensive conception of what is work or labour like that of Komlosoy, Lawson, and England. How labour is represented and understood has been central to the evolution of labour geography.</span></p><h3 id='labour-geographies-priorities'><span>Labour Geographies Priorities</span></h3><p><span>To begin with, labour geography research was narrowly taking place within the sub-discipline of economic geography and its historical currents.  Leading up into the 1970’s geographers had emphasized neoclassical economics and studying patterns of industrial location. This work was critiqued for conducting research sympathetic to commercial interests and rationalizing working people and places into mere production inputs (Herod, 1997; Massey, 1973). As Herod (1997) put it, the &#39;locational tradition&#39; was used to assist corporations in locating their operations and accessing labour power rather than helping workers achieve better conditions. But this limited concentration did not last long as geographers more generally were grappling with lasting critiques of the socio-political character of geographical knowledge production and a surge in Marxist and feminist theorizing in the discipline (Bowlby et al., 1989; Smith 1979; Harvey, 1984).</span></p><p><span>Labour geography had its most designated moment when Herod (2001) published his comprehensive book </span><em><span>Labour geographies: Workers and the landscapes of capitalism</span></em><span>. Herod’s work may not be the ‘first’ labour geography. Still, it was the first time the sub-field was transformed into a proper noun, thus starting its ‘project.’ For example, Peck (2013) wrote that Massey’s book </span><em><span>Spatial Divisions of Labour</span></em><span> was “path altering” for economic geography and is foundational to labour geography because Massey emphasized that labour was a “social agent” (113). Likewise, I would argue that Smith&#39;s concept of </span><em><span>Uneven Development</span></em><span> is fundamental to understanding why some workers thrive and others are profoundly immiserated or lacking a livelihood altogether (see Smith, 1984). Herod’s primary concern was not unlike Massey’s efforts of representing labour as deeply embedded in social relations. Herod attempted to formally flip the script from studying the </span><em><span>geography of labour</span></em><span> to studying </span><em><span>labour geography</span></em><span>.</span></p><p><span>For Herod, this was more than a semantic move because many of the former geographies of labour tended to position working people as powerless to the forces of capitalist exploitation. In Herod’s (2001) view the alternative was to produce labour geographies for “a more serious consideration of how [workers] </span><em><span>actively produce economic spaces and scales</span></em><span> in particular ways...as they implement landscapes of their own spatial fixes in the process of ensuring their own self-reproduction.” (46, italics original). Put another way, Herod argues that geographers needed to be committed to understanding how workers had active roles in shaping the landscapes of capitalism. For Herod geographers needed a renewed “focus on workers’ efforts to build their own spatial fixes that are appropriate to their concerns at different times and in different places” (48). Because of this relatively recent worker-centric approach labour geography tends to have a shared political commitment to working people. As Castree (2007) put it labour geography “is not simply </span><em><span>about</span></em><span> working people (and certainly not about </span><em><span>managing</span></em><span> them better), but is in some sense </span><em><span>for</span></em><span> them too, in all of their diversity” (856, italics original).</span></p><p><span>A critical outcome of labour geography has been the meteoric rise of writing and research on the </span><em><span>agency of labour</span></em><span> (for some key summaries, see Coe &amp; Jordhus-Lier, 2011; Strauss, 2020a). In short, labour geographers became concerned with understanding the agency of workers and the extent to which labours agency is powerful enough to effect socio-spatial change. Strictly speaking, agency is not just workers&#39; actions or what workers&#39; do. This would be far too simplistic a view and lack analytical utility. For the remainder of this section, I will focus on unpacking agency. Labour agency remains a central theme in labour geography and the most formative priority of the sub-field.</span></p><h3 id='labours-agency'><span>Labour&#39;s Agency</span></h3><blockquote><p><span>[Agency is]...the degree to which a subject is able to determine the course of their own actions. The concept is generally used in the context of discussions about the factors that shape everyday life and place a limit on agency. For instance, relative levels of wealth clearly impact on the degree of agency someone might have. As Karl Marx famously put it, people make history, but not in conditions of their own choosing (Buchanan, 2018). </span></p></blockquote><p><span>Agency is an expansive concept because it penetrates life&#39;s most fundamental social aspects. What choices are available to us every day? What is autonomy, and do we have it? How do we achieve a life worth living, and to what extent can we make decisions that work toward that end? These are all questions of agency. As the definition above emphasizes, social scientists and critical theorists are interested in what </span><em><span>shapes agency</span></em><span>. Agency is not a numerically measurable variable per se. Instead, agency is defined as our capacity to act within particular social relations in time and space. Agency is frequently discussed in comparison to social structures. Since the 1970s, there has been an ongoing &quot;structure-agency debate.&quot; The debate discusses which of the two concepts is more important in determining social outcomes. Put another way, the structure-agency debate is about to what extent our lives are determined by the prevailing social structure of the world versus our ability to make choices that impact or alter the world and our relations in it. </span></p><p><span>For geographers, agency is important as the degree of agency of any individual or group changes with geographical location. By now, many geographers and other scholars have attempted to move clear of the structure-agency debate.  Sociologist Anthony Giddens (1984) was significant in this regard, as he argued that structure and agency could be understood as linked as concepts, where neither has priority over the other. Agency and structure are co-extensive, but how either is framed in research is essential. This is why agency became so central to labour geographers. Herod (1997, 2001) was at least partially arguing that structure was being prioritized over agency. As Cumbers et al. (2011) put it, there is &quot;little sense of agency for individuals and communities amid economic restructuring...they are usually treated as passive victims of deeper underlying processes&quot; (46).  In short, there is a need to understand both structure and agency as it shapes people&#39;s lives. </span></p><p><span>One of the most significant geographical works to expand on agency is Katz&#39;s (2004) book </span><em><span>Growing Up Global: Economic Restructuring and Children&#39;s Everyday Lives</span></em><span>. Katz&#39;s work is a rich empirical and comparative study that examines children living in the Sudanese village of Howa and working-class families in the New York City borough of Harlem. Katz&#39;s final chapter in the book outlined a now widely used formulation of agency. For Katz, agency was defined by three overlapping frames: </span><em><span>resilience</span></em><span>, </span><em><span>reworking</span></em><span>, and </span><em><span>resistance</span></em><span> (see Table 1). Before explaining these terms, it&#39;s helpful to understand the context and why Katz was thinking in this particular way. Katz was responding to her observations of uneven development cutting across both the Global South (Sudan) and the Global North (New York City):</span></p><blockquote><p><span>Indeed, all over the world &quot;development&quot; driven by global economic restructuring produces similar contradictions between resources available and possibilities engendered, leaving people scrambling to make themselves viable in the face of the relentless, uneven development that is the hallmark of capitalism (see Smith 1984) (240).</span></p></blockquote><p><span>Katz was dissatisfied with the narrowness of agency. Manny scholars simplistically categorized all acts of survival taken up by the working class as acts of resistance. Katz writes that we &quot;cannot understand oppositional practice or its possible effects if we consider every autonomous act to be an instance of resistance&quot; (242). Out of this particular empirical context and critique of agency in social theory, Katz formed the &#39;three R&#39;s.&#39; </span></p><p><strong><span>Table 1: Katz (2004) Three R&#39;s of Agency</span></strong></p><figure><table><thead><tr><th><span>Resilience</span></th><th><span>Reworking</span></th><th><span>Resistance</span></th></tr></thead><tbody><tr><td><span>’Just getting by’</span></td><td><span>&#39;Modifying power relationships&#39;</span></td><td><span>&#39;Draw on and produce a critical consciousness&#39;</span></td></tr><tr><td><span>&#39;Reciprocal relations&#39;</span></td><td><span>&#39;Recalibrate/distribute resources&#39;</span></td><td><span>&#39;Confronts oppressive forces at different scales&#39;</span></td></tr><tr><td><span>&#39;Building up resources</span></td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure><p><span>Resilience can be understood as what we do to &#39;get by.&#39; As Katz puts it, resilience looks like the &quot;innumerable small acts&quot;  that continually foster &quot;ways to get by each day&quot; (244). Resilience is about &#39;shoring up resources&#39; and &#39;entering reciprocal relations,&#39; but these acts do not necessarily challenge our oppressive circumstances, but they do allow us to maintain ourselves within them (246). Re-working manifests as strategies that are more explicit about understanding where oppressive circumstances come from. Re-working is about modifying power dynamics, and mitigating asymmetries: &quot;[p]rojects of reworking are enfolded into hegemonic social relations because rather than attempt to undo these relations or call them into question, they attempt to recalibrate power relations and/or redistribute resources&quot; (247).</span></p><p><span>Katz describes re-working in Sudan as communities organized to raise funding for crucial infrastructure to support schools. In this case, building standpipes for water was vital in freeing young girls from having to collect water from far away each day. In turn, this increased their ability to attend school. As Katz describes it, this process was both a re-working of resources or the material stuff of life while also re-working the &quot;social agency of young people&quot; by helping them access a different future through education (251). Material and social change as inextricably linked processes is key to Katz&#39;s analyses of agency.</span></p><p><span>Resistance consists of practices that attempt to disrupt, change, or disorder the structures producing exploitation and oppression. They &quot;draw on and produce a critical consciousness to confront and redress historically and geographically specific conditions of oppression and exploitation at various scales&quot; (251). Resistance, unlike re-working or resilience, is directly engaging against systems of oppression. Again, in the Sundan Katz describes how mothers kept their young sons from finishing secondary school because they became eligible for military conscription upon completion. At the same time, mothers protested in the capital of Khartoum at significant personal risk as the state readily enacted violence toward protestors.  Katz describes this as the &quot;tragic bargains&quot; mothers undertook in engaging with resistance (255). All too often, resistance is romanticized, and in many ways, Katz developed a more grounded account of agency without the romanticization of people&#39;s struggles. </span></p><p><span>Katz&#39;s three R&#39;s as a conceptual tool for understanding agency has travelled extensively in labour geography. Coe &amp; Lier (2011) brought Katz&#39;s framework to labour geography directly through their discussion of &quot;constrained agency.&quot; Coe &amp; Lier argued that labour geography was still primarily focused on unionized workers in the Global North. But western unionized contexts do not reflect the reality of most working-class people globally. Coe &amp; Lier note how agency occurs across space, at different scales, and through a sense of place. Given this complexity, agency is constrained or enabled differently through intersecting geographies. For this reason, Coe &amp; Lier make the case that geographers need to expand agency to understand how &quot;some workers&#39; actions seem to matter more than others&quot; (228). Part of this paradigm shift is making sense of the difference and frequency of strategies like resilience, re-working, and resistance across different geographical contexts.</span></p><p><span>For example, Sportel (2013) examined informal and unorganized agricultural labour in the coconut sector in Kerala, India. In particular, Sportel uses Katz&#39;s framework to understand how coconut pluckers in Kerala engaged in practices of strategies of resilience (by refusing less profitable jobs), re-working (by using education to change their caste and class position), and resistance (stealing high-quality coconuts). Coconut pluckers were using these strategies to navigate the local labour market&#39;s unique social character and the context of changes driven by agricultural trade liberalization. Anwar &amp; Graham (2020) also examined informal labour within the gig-economy in South Africa, Kenya, Nigeria, Ghana, and Uganda. Anwar &amp; Graham were studying platforms such as Upwork that act as a digital intermediary for freelancers. As an intermediary, this type of digital platform allows businesses to hire freelancers to complete tasks. For example, data entry, writing and translation services, creative and multimedia work, or software development tasks are common on Upwork. Anwar and Graham use Katz&#39;s framework to compare resilience, re-working, and resistance strategies occurring on and off the platform. For example, offline, gig workers formed community groups as a form of resilience to find more work or understand how various job platforms function. On the platform, these gig-workers engaged in acts of resistance by leaving bad feedback remarks on specific clients or withholding their completed work if a client attempts to underpay them or change the job parameters suddenly. </span></p><p><span>Returning to a Global North context, Warren (2018) uses Katz&#39;s framework to help conceptualize &quot;intra-labour agency&quot; or agency and conflicts between workers. Warren examines the workplace relationships within the Australian company Port Kembla Steelworks (PKW). PKW&#39;s workforce faced major restructuring, significant union decline, and in some cases, employees were made redundant or asked to retire early through buyouts voluntarily. Warren underscores the significant hardship faced by forced redundant workers and their families attempting to find new work. At the same time, there is considerable tension between steelworkers who survived restructuring and continue to work in an increasingly competitive environment where job security is at an all-time low. Warren noted how agency at PKW was further constrained by intra-labour relations of distrust, self-interest, and conflict. For Warren, intra-agency between workers is crucial because it may enable or inhibit meaningful strategies of resilience, re-working, or resistance. </span></p><p><span>My point in illustrating the former examples (Anwar &amp; Graham, 2020; Sportel, 2013; Warren, 2018) is that labour agency looks different based on both the macro-scale processes in the global economy, through the meso-level of regional economies, and finally down to the micro-level of workplaces, communities, and households. Coe &amp; Lier (2011) write labour geography ideally will attend to &quot;grounded processes&quot; that appear through &quot;social and cultural relationships and with institutional forms such as global production networks, the state, community networks and labour market intermediaries&quot; (218). Each of the former examples attempts to tease out these complex spatial relationships of agency.  Nevertheless, Strauss (2020a) states that agency in labour geography continues to be beleaguered by a lack of specificity in terms of its meaning and especially in favouring ontological positions that exclude social reproduction activities like child care and domestic work. Several recent summaries of social reproduction in geography are profound and broadly definine its relevance in geography (Rodríguez-Rocha, 2021; Winders &amp; Smith, 2019).</span></p><p><span>Additionally, Mullings (2021) has pushed labour geography by putting &quot;histories of slavery, colonial dispossession, imperialism back to the top of our list of unresolved injustices&quot; as they continue to be crucial in understanding how value is extracted from people and places (157). I agree with Strauss&#39; (2020a) recent assessment, especially in that social reproduction through community survival is the empirical basis on which Katz (2004) originally conceived of the three R&#39;s. Labour agency is much more than what happens at the workplace but how labour and life exceed neat boundaries and spill over into one another. After all, Castree (2007) made a similar point stating that &quot;the ‘best’ kind of labour geography analyses the geographies of employment and labour struggle not in themselves but as windows onto the wider question of how people live and seek to live&quot; (859). </span></p><p><span>In short, agency remains the bread and butter of labour geography. Agency is used to understand both what labour/work is and the different changing realities of people&#39;s lives. Considering the brief contexts mentioned in this section, it is clear that labour geography is focused on moments of economic change and how these changes impact workers&#39; agency in different geographic contexts. It should come as no surprise that labour geography will be helpful in understanding the recent surge in remote work as a labour restructuring moment. In the next section, I outline how remote work can be understood as a mode of work. </span></p><h2 id='home---work-telework-and-remote-work'><span>Home—Work, Telework, and Remote Work</span></h2><p><span>&#39;Remote work&#39; or &#39;working from home&#39;  has exploded into public discourse since the first lockdowns of COVID-19 in February/ March 2020. However, it is not the first time the idea has taken a foothold. Patton (2020) has extensively reviewed the various configurations of the &#39;home office&#39; in the United States. Patton (2020) notes that while telephones and typewriters radically changed work in the home, the personal computer (PC) epitomizes contemporary work being taken on in the American household. This most recent epoch of computers and information communication technologies (ICTs) is of key importance for the current status of remote work. </span></p><p><span>Remote work or &#39;telework&#39;</span><sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup><span> had its first zenith in the 1990s. This was a period of intense speculative investment in internet-based companies. There were many projections about the future of work and how information communication technologies would change businesses during this time. For example, prominent futurist Alvin Toffler coined the phrase &#39;electronic cottage&#39;, which described a future where people could work wherever they want and how this new situation would revolutionize family life (Toffler, 1980). This was, of course, a never-realized utopian future. Huws (1991) summarized the heady days of the &#39;telework future&#39; as detached from reality and existing mainly as an ideological construct. Huws critiqued the discourses of telework because they were extraordinarily gendered.</span></p><p><span>On the one hand, the discourses of telework mainly spoke about the future of the educated white male breadwinner. On the other hand, these discourses failed to engage with those workers who were already doing telework, most often women in customer service or clerical roles. Cassidy (2001) described the early advertising for PCs, which suggested women could use them for home management while men supposedly needed them for professional work. Like other home-based work, telework occurred long before the COVID-19 pandemic and followed existing grooves of social difference. </span></p><p><span>Part of the challenge for labour geographers will be to understand how long-standing patterns and meanings of home and work intersect with new definitions of remote work. As referenced earlier, there are millions of people carrying out work within their homes. But for this article, I aim to understand remote work better specifically. My definition of remote work is related to the digitally mediated present. Remote work, broadly defined, is when workers&#39; use of ICTs enables them to carry out job roles or tasks in spaces that are physically separate from their colleagues and employers. Put another way; remote work is &quot;work that relies on technology-mediated communication and sophisticated information-processing capabilities instead of colocation for the production and delivery of work outputs&quot; (Garret &amp; Danzinger, 2007, 27). </span></p><p><span>Management researchers Bailey &amp; Kurland (2002) completed a comprehensive review of remote work in the early 2000s, concluding that there was a lack of empirical research on </span><em><span>how</span></em><span> people conduct telework and an overemphasis on isolated individual experiences instead of networks, organizations, or teams. Baily &amp; Kurland (2002) suggested that researchers avoid making universal narratives about remote work as it varies across different organizational contexts. One way of comprehending this complexity is by focusing on how meanings of home and work collide for remote workers.  For example, Mirandaci (1998) interviewed remote workers and found that they often intentionally reinforced a boundary between their paid work and &#39;non-work&#39; or social reproduction in their households. These workers did so to try and &#39;protect the boundary&#39; between their work and private life (1998). Similarly, Johnson et al. (2007) conducted a case study of women working as rehabilitation consultants in Canada from home. They found that home-based work &quot;blurs the boundaries between home and work,&quot; and a primary concern for workers was maintaining a &quot;separation of their workplace and their home&quot; (157). </span></p><p><span>Other research has shown that the benefits of remote work, such as job satisfaction and well-being, are frequently eroded long term by the intensification of working hours and an inability to switch off or disconnect from work (Felstead &amp; Henseke, 2017). In the United Kingdom, women work from home more often than men, and the common reasons women cited for this were attempts at balancing work and family responsibilities (Reuschke, 2019). Eddleston and Mulki (2017) have made the argument that working &quot;solely from home encourages remote workers to overwork and to allow their work to infringe on their family role&quot; (247). Overall, Boell et al. (2016) describe remote work as inherently paradoxical since it is often described as &#39;good&#39; or &#39;bad&#39; for competing reasons. </span></p><p><span>These previous studies before the surge of remote work during COVID-19 provide a crucial starting point for understanding remote work after the onset of the pandemic. First, it&#39;s clear that a kind of imaginary and discourse of remote work has existed before </span></p><p>&nbsp;</p><ul><li><span>View slides.</span></li><li><span>Transition to remote work, agency, and the future of work. </span></li><li><span>Make the argument about restructuring currents. </span></li></ul><h3 id='agency-and-remote-work-futures'><span>Agency and Remote Work Futures? </span></h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><hr /><p>&nbsp;</p><p><span>Clauson (2020): Perhaps the task is not to predict the future of work, but to create it. (575)</span></p><p><span>Cockayne (2021): Firms are going digital by default, who can actually participate in working from home,  &quot;future research could be to substantively document different firms’ approaches toward working from home in order to track similarities and differences across sectors with telework capacity.&quot;</span></p><p><span>Herod et al. (2022): The cases of labour agency briefly presented highlight that workers’ collective responses to the pandemic are being shaped by the geographical contexts within which they find themselves, from workplace micro-geographies to daily commuting patterns and housing realities.</span></p><p><span>Massey (2012): &quot;Instead then, of thinking of places as areas with boundaries around, they can be imagined as articulated moments in networks of social relations and understandings.&quot; (65)</span></p><p><span>Massey (2013): &quot;We should be thinking of ‘the economy’ not in terms of natural force and intervention but in terms of a whole variety of social relations that need some kind of coordination.&quot; (21)</span></p><p><span>Pajević (2021): Urban real estate has already shifted as a result of high-tech sectors and more flexible modes of working. </span></p><p><span>Reid (2020): “homes-that-are,” “homes-to-be,” and “homes-that-ought” in critical geographies of home more broadly, as I will suggest throughout this conclusion. (12) “Part of the power of future anticipation is in the (re)making of spaces, in this case, homes. Futures scholarship suggests that how future homes are imagined in the present is likely to be closely linked to what they will be.” (12)</span></p><p><span>Reid-Musson et al. (2020): Popular discussions about the future of work have often avoided the specific realities faced by workers, and thus have largely ignored racial, gendered, and geographical forms of difference. (1463)</span></p><p><span>Reuschke and Felstead (2020): The privileged socio-economic profile of homeworkers before the COVID-19 crisis is associated with living in well-off neighbourhoods, in particular inner-city neighbourhoods with high proportions of professional workers as well as suburban areas with large properties and high proportions of homeowners </span></p><p><span>Richardson (2018): digital tech generates extension of the activities that count as work, together with an intensification of working practices, rendering the boundaries of the workplace emergent. </span></p><p><span>Richardson (2021): “Platformization describes such processes of work through digital technologies, indicating the necessity for future research to examine first the changes to agency arising through contemporary technologies of work that second occur through spatial processes that disturb work–life division as a foundation for social organization.” (361)</span></p><p><span>Burell and Marion (2021): we argue that the core divide in digital capitalism opposes what we call the coding elite, who hold and control the data and software, and the cybertariat, who must produce, refine, and work the data that feed or train the algorithms, sometimes to the point of automating their own jobs and making themselves redundant. ()</span></p><p><span>Cassilli et al (2019): &quot;Thus, a platform can be mainly characterized as a software or hardware infrastructure on which users, companies, and even governments build applications, services, and communities.&quot; (2)</span></p><p><span>the market has increasingly become ‘abstract’ and disconnected from individual experiences. Previously depicted as a physical space where localized relationships occurred (‘the marketplace’), the market has been increasingly reduced to an impersonal force governed by opaque rules that transcend individual comprehension (‘the economy’) (3)</span></p><p><span>Worth: Identity. I have used Berlant’s (2011) work to suggest that all of the above are strategies of the present: putting up with ‘temporary exploitation’, personal strategies to avoid discriminatory treatment and outward actions that push back against workplace norms all seem to be justified by the hope or expectation that the future workplace will not require these efforts. A sense of cruel optimism emerges when this future never seems to arrive, and performative work identities that respond to age and gender stereotypes are a continuing part of the experience of work. (p. 1312)</span></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='conclusion'><span>Conclusion</span></h2><h2 id='references'><span>References</span></h2><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> <span>Telework is a concept that preeceded remote work and was first described by Nilles (1975) well before personal computers were found in the household. Telework, remote work, and working form home are usually synonymous concepts but sometimes are used to specify if some or all of the work is being done at home (Vartiainen, 2021). Other keywords like telecommuting, home-based work, mobile work have also been used. Of central importance to this paper is work mediated by digital technologies as opposed to home based work that does not require ICTs to complete the majority of job tasks.</span> <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div></div></div></div>
+</body>
+</html>
